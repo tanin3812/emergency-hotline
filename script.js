@@ -57,7 +57,7 @@ const navCopyButton = document.getElementById('nav-copy-btn')
 const copyButtons = document.querySelectorAll('.copy-btn');
 for(const btn of copyButtons){
     btn.addEventListener('click', function () {
-    const number = btn.parentElement.parentElement.querySelector('p.text-2xl').innerText;
+    const number = btn.parentElement.parentElement.querySelector('p.service-num').innerText;
     copyCount++;
     navCopyButton.innerText = copyCount + ' Copy';
     navigator.clipboard.writeText(number).then(() => {
