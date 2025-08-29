@@ -1,10 +1,6 @@
 let heartCount = 0;
-let coinCount = 100;
-let copyCount = 0;
 
 const heart = document.getElementById('heart-count')
-const coin = document.getElementById('coin-count')
-const navCopyButton = document.getElementById('nav-copy-btn')
 
 
 const allHeart = document.querySelectorAll('.fa-heart');
@@ -20,48 +16,45 @@ for(const hearts of allHeart){
 }
 
 
+let coinCount = 100;
+const coin = document.getElementById('coin-count')
 
+const callButtons = document.querySelectorAll('.call-btn');
+const historyList = document.getElementById('call-history');
+for(const button of callButtons){
+  button.addEventListener('click', function(){
+    const card = button.closest('.card');
+    const serviceName = card.querySelector('h3').innerText
+    const serviceNum = card.querySelector('p.text-2xl').innerText
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-const callButtons = document.querySelectorAll(".call-btn");
-const historyList = document.getElementById("call-history");
-for (const btn of callButtons) {
-  btn.addEventListener("click", function () {
-    const card = btn.closest(".card");
-    const serviceName = card.querySelector("h3").innerText;
-    const serviceNumber = card.querySelector("p.text-2xl").innerText;
-
-    if (coinCount < 20) {
-      alert("Not enough coins!");
+    if(coinCount < 20){
+      alert('Insufficient Coins!');
       return;
     }
-
-    coinCount -= 20;
+    coinCount = coinCount - 20;
     coin.innerText = coinCount;
+    alert('Calling ' + serviceName + ' (' + serviceNum + ')')
 
-    alert("Calling " + serviceName + " (" + serviceNumber + ")");
-
-    // history এ add করা
     const time = new Date().toLocaleTimeString();
-    const li = document.createElement("li");
-    li.innerText = serviceName + " - " + serviceNumber + " (" + time + ")";
-    historyList.appendChild(li);
-  });
+    const list = document.createElement('li');
+    list.innerText = serviceName + '-' + serviceNum + '     -     (' + time + ')';
+    historyList.appendChild(list);
+  })
 }
 
 
-document.getElementById("clear-history").addEventListener("click", function () {
-  historyList.innerHTML = "";
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
