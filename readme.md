@@ -12,7 +12,7 @@ We can create a new element using "document.createElement()"  & insert it into D
 Answer:
 Event Bubbling is a process in which an event starts from the primary element and then propagates upward through its parent elements until it reaches the 'document'.
 
-4. 
+4. What is **Event Delegation** in JavaScript? Why is it useful?
 Answer:
 It is a technique in js where instead of adding event listener to multiple child elements, we can add a single event listener to a common parent element.
 It is useful as it reduces the number of event listener and make it simple.
